@@ -1,0 +1,174 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+
+}
+
+.mainheader {
+        background-color: white;
+
+
+
+    top: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+
+    width: 100vw;
+
+}
+
+.header {
+    align-items: center;
+
+    display: flex;
+    width: 100vw;
+    height: 60px;
+
+}
+
+img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.left-side {
+    margin-left: 15px;
+    display: flex;
+    flex: 1;
+    justify-content: start;
+}
+
+.center-side {
+
+    flex: 1;
+
+    display: flex;
+}
+
+.inputsection {
+    overflow: hidden;
+
+    display: flex;
+    justify-content: start;
+    border-radius: 20px;
+    justify-content: start;
+
+    border: 2px solid wheat;
+    align-items: center;
+
+}
+
+.inputsection button {
+    border: none;
+    border-radius: 5px;
+
+}
+
+.inputsection button img {
+    width: 35px;
+}
+
+.inputsection input {
+    border: none;
+    outline: none;
+    height: 55px;
+    width: 300px;
+    border-radius: 20px;
+    font-size: 2rem;
+
+}
+
+.mic {
+    display: flex;
+
+}
+
+.mic img {
+    width: 35px;
+    margin-left: 20px;
+    padding: 8px;
+}
+
+
+.right-side {
+
+    display: flex;
+    flex: 1;
+    justify-content: end;
+    margin-right: 15px;
+}
+
+.right-side .user {
+    justify-content: end;
+}
+
+.navasid {
+    position: fixed;
+    top: 0;
+    margin-top: 70px;
+    height: 100vh;
+    width: 100px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 15px;
+    width: 100%;
+}
+
+li {
+
+    list-style: none;
+    margin-top: 10px;
+}
+
+.video-section {
+   padding: 20px;
+    display: flex;
+    margin-top: 90px;
+    margin-left: 120px;
+    width: 100%;
+}
+
+.video {
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: (2, 1fr);
+    gap: 20px;
+}
+
+.mainimgd {
+    width: 100%;
+    border-radius: 5%;
+}
+.propervideo{
+    display: flex;
+    flex-direction: column;
+       left: 50%; /* horizontally center */
+    justify-content: center;
+    cursor: pointer;
+
+
+}
+.propervideo p{
+    display: flex;
+    flex-direction: row;
+ 
+    justify-content:center ;
+}
+a{
+   color: inherit;                 text-decoration: none;     
+    font-style: normal;   
+}
