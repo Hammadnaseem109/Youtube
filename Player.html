@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Player</title>
+
+  <!-- Include Video.js CSS -->
+  <link href="https://vjs.zencdn.net/8.9.0/video-js.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    #my-video {
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Custom Video Player</h1>
+
+  <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="720"
+    height="400"
+    data-setup="{}"
+  >
+    <source src="Dumy-Vidio/dummy-Video.mp4" type="video/mp4" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript and consider upgrading to a browser that supports HTML5 video.
+    </p>
+  </video>
+
+  <br>
+  <a href="index.html">← Back to Gallery</a>
+
+  <script src="https://vjs.zencdn.net/8.9.0/video.min.js"></script>
+</body>
+</html>
