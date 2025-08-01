@@ -13,7 +13,8 @@
     <header class="mainheader">
         <div class="header">
             <div class="left-side">
-                <img src="Images/youtube.png" alt="Youtube Logo">
+                <img src="Images/navbtn.png" alt="navbtn" id="navbtn">
+                <img src="Images/youtube.png" alt="Youtube Logo" id="navbtn">
 
             </div>
             <div class="center-side">
@@ -43,19 +44,28 @@
     <!-- -----start of Nav------ -->
     <nav class="navasid">
         <ul class="nav">
-            <li>Home</li>
-            <li>Subsription</li>
-            <li>You</li>
-            <li>Navigation Bar</li>
+            <div class="navli" >
+                <img src="Images/home.png" alt="Home">
+                <li>Home</li>
+            </div>
+            <div class="navli" >
+                <img src="Images/search.png" alt="">
+                <li>Subsription</li>
+            </div>
+            <div class="navli">
+                <img src="Images/user.png" alt="">
+                <li>You</li>
+            </div>
+
         </ul>
 
     </nav>
     <!-- -----end of nav------- -->
     <div class="video-section">
         <div class="video" id="video">
-           </div>
-
         </div>
+
+    </div>
 
     </div>
 
@@ -73,7 +83,7 @@
                 url: "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
                 thumbnail: "https://img.youtube.com/vi/kJQP7kiw5Fk/hqdefault.jpg"
             },
-            
+
             {
                 title: "Ali Sethi – Pasoori",
                 url: "https://www.youtube.com/watch?v=5Eqb_-j3FDA",
@@ -150,31 +160,61 @@
                 thumbnail: "https://img.youtube.com/vi/YqeW9_5kURI/hqdefault.jpg"
             }
         ];
- const video = document.getElementById("video")
- songs.forEach((element,index) => {
-    const propervideo=document.createElement("div")
-    propervideo.className="propervideo"
-  const  mainimgd=document.createElement("img")
-  mainimgd.className="mainimgd"
-mainimgd.src = element.thumbnail
-  const videoname=document.createElement("p")
-  videoname.className="popp"
-  videoname.textContent=element.title
-  const Channelname=document.createElement("p")
-  Channelname.className="popp"
-  Channelname.textContent="T-Series"
-    video.appendChild(propervideo)
+        const video = document.getElementById("video")
+        let navbarval=0
+        songs.forEach((element, index) => {
+            const propervideo = document.createElement("div")
+            propervideo.className = "propervideo"
+            const mainimgd = document.createElement("img")
+            mainimgd.className = "mainimgd"
+            mainimgd.src = element.thumbnail
+            const videoname = document.createElement("p")
+            videoname.className = "popp"
+            videoname.textContent = element.title
+            const Channelname = document.createElement("p")
+            Channelname.className = "popp"
+            Channelname.textContent = "T-Series"
+            video.appendChild(propervideo)
 
-  propervideo.append(mainimgd)
-  propervideo.appendChild(videoname)
-  propervideo.appendChild(Channelname)
-  propervideo.addEventListener("click",()=>{
-    window.location.href = "Player.html";
+            propervideo.append(mainimgd)
+            propervideo.appendChild(videoname)
+            propervideo.appendChild(Channelname)
+            propervideo.addEventListener("click", () => {
+                window.location.href = "Player.html";
 
-  })
-    
-    
- });
+            })
+
+
+        });
+        const navbtn = document.getElementById("navbtn");
+const navasid = document.querySelector(".navasid");
+const navli = document.getElementsByClassName("navli");
+
+let row = true; // assuming starting layout is column (collapsed)
+
+navbtn.addEventListener("click", () => {
+    if (row) {
+        // Expand nav
+        navasid.style.width = "135px";
+
+        Array.from(navli).forEach(navlist => {
+            navlist.classList.remove("columnnavli");
+            navlist.classList.add("rownavli");
+        });
+
+        row = false;
+    } else {
+        // Collapse nav
+        navasid.style.width = "100px";
+
+        Array.from(navli).forEach(navlist => {
+            navlist.classList.remove("rownavli");
+            navlist.classList.add("columnnavli");
+        });
+
+        row = true;
+    }
+});
 
 
     </script>

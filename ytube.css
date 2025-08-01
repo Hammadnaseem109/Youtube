@@ -10,7 +10,7 @@ body {
 }
 
 .mainheader {
-        background-color: white;
+    background-color: white;
 
 
 
@@ -54,26 +54,32 @@ img {
 }
 
 .inputsection {
+    flex-wrap: wrap;
     overflow: hidden;
 
     display: flex;
     justify-content: start;
     border-radius: 20px;
     justify-content: start;
-
+    height: 45px;
     border: 2px solid wheat;
     align-items: center;
 
 }
 
 .inputsection button {
+    display: flex;
+
+    height: 25px;
+    background-color: transparent;
     border: none;
+    align-items: center;
     border-radius: 5px;
 
 }
 
 .inputsection button img {
-    width: 35px;
+    width: 30px;
 }
 
 .inputsection input {
@@ -89,10 +95,12 @@ img {
 .mic {
     display: flex;
 
+
 }
 
 .mic img {
-    width: 35px;
+    width: 50px;
+    height: 50px;
     margin-left: 20px;
     padding: 8px;
 }
@@ -111,6 +119,8 @@ img {
 }
 
 .navasid {
+    background-color: white;
+    z-index: 20000;
     position: fixed;
     top: 0;
     margin-top: 70px;
@@ -134,7 +144,7 @@ li {
 }
 
 .video-section {
-   padding: 20px;
+    padding: 20px;
     display: flex;
     margin-top: 90px;
     margin-left: 120px;
@@ -142,33 +152,77 @@ li {
 }
 
 .video {
-    
+
     display: grid;
+    flex-wrap: wrap;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: (2, 1fr);
     gap: 20px;
 }
 
 .mainimgd {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     border-radius: 5%;
 }
-.propervideo{
+
+.propervideo {
     display: flex;
+    
     flex-direction: column;
-       left: 50%; /* horizontally center */
+    left: 50%;
+    /* horizontally center */
     justify-content: center;
     cursor: pointer;
 
 
 }
-.propervideo p{
+
+.propervideo p {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
- 
-    justify-content:center ;
+
+    justify-content: center;
 }
-a{
-   color: inherit;                 text-decoration: none;     
-    font-style: normal;   
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-style: normal;
+}
+.navli{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   margin-top: 20px;
+}
+.rownavli{
+ display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   margin-top: 20px;
+}  
+.rownavli img{
+    justify-content: start;
+      width: 25px;
+    height: 25px;
+margin-right: 20px;
+    border-radius: 0%;
+}
+.rownavli  li{
+    
+display: flex;
+justify-content: start;
+    width: 70px;
+    
+}
+.navli img{
+    width: 25px;
+    height: 25px;
+    border-radius: 0%;
+
 }
