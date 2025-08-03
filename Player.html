@@ -191,12 +191,15 @@
       const songsname = document.createElement("p")
       songsname.className = "songname"
       songsname.textContent = element.title
+      const br = document.createElement("br");
+
       const songstitle = document.createElement("p")
       songstitle.className = "songname"
       songstitle.textContent = "T-Series"
 
       lvideo.appendChild(ltvideo)
-      
+      nat.appendChild(br);           
+
       lvideo.appendChild(nat)
       nat.appendChild(songsname)
       nat.appendChild(songstitle)
