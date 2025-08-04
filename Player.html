@@ -186,8 +186,8 @@
       const ltvideo = document.createElement("img")
       ltvideo.className = "lvthumnail"
       ltvideo.src = element.thumbnail
-      const nat=document.createElement("div")
-      nat.className="nat"
+      const nat = document.createElement("div")
+      nat.className = "nat"
       const songsname = document.createElement("p")
       songsname.className = "songname"
       songsname.textContent = element.title
@@ -198,10 +198,11 @@
       songstitle.textContent = "T-Series"
 
       lvideo.appendChild(ltvideo)
-      nat.appendChild(br);           
 
       lvideo.appendChild(nat)
       nat.appendChild(songsname)
+      // nat.appendChild(br);
+
       nat.appendChild(songstitle)
       remainvideos.appendChild(lvideo)
 
