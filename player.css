@@ -65,6 +65,7 @@ img {
     align-items: center;
 
 }
+
 .inputsection input {
     border: none;
     outline: none;
@@ -152,7 +153,6 @@ li {
 
 
 
-
 .playervideo {
     display: flex;
     flex-direction: row;
@@ -163,11 +163,40 @@ li {
 
 }
 
+@media(max-width : 560px) {
+    .playervideo {
+        margin-top: 135px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      align-items: center;
+
+        justify-content: center;
+        height: 100vh;
+
+    }
+
+}
+
+
 .playingvideo {
     margin-left: 10%;
     display: flex;
     width: 55%;
     height: 65%;
+}
+
+@media(max-width : 560px) {
+    
+.playingvideo {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 80%;
+    height: 65%;
+}
+
 }
 
 .yvidoe {
@@ -187,6 +216,13 @@ li {
     width: 25%;
     height: 100vh;
 }
+@media(max-width:560px){
+    .remainvideos{
+        width: 80%;
+            margin-left: 10vw;
+
+    }
+}
 
 .lvideo {
     border-radius: 10px;
@@ -196,6 +232,13 @@ li {
     width: 100%;
     height: 25%;
 }
+@media(max-width : 560px){
+    .lvideo{
+        flex-direction: column;
+        height: 100vh;
+        align-items: center;
+    }
+}
 
 .lvideo img {
     width: 40%;
@@ -204,19 +247,27 @@ li {
     object-fit: cover;
     border-radius: 10px;
 }
+@media(max-width:560px)
+{
+    .lvideo img{
+        width: 80%;
+    }
+
+}
 
 .nat {
     display: flex;
     flex-direction: column;
-    
-    
-    
+
+
+
     justify-content: center;
     align-items: start;
     padding-left: 3px;
 }
+
 .songname {
-    
+
 
     display: flex;
     -webkit-box-orient: row;
