@@ -125,6 +125,7 @@ img {
 
 
 .navasid {
+    display: flex;
     background-color: white;
     z-index: 20000;
     position: fixed;
@@ -136,6 +137,12 @@ img {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     transition: width 0.3s ease;
 }
+@media(max-width:560px){
+    .navasid{
+        display: none;
+    }
+
+}
 
 .nav {
     display: flex;
@@ -144,12 +151,12 @@ img {
     width: 100%;
 }
 
+
 li {
     list-style: none;
     margin-top: 10px;
 }
 
-/* Expanded nav styles */
 .rownavli {
     display: flex;
     align-items: center;
@@ -157,7 +164,6 @@ li {
     padding: 10px;
 }
 
-/* Collapsed nav styles */
 .columnnavli {
     display: flex;
     flex-direction: column;
@@ -166,10 +172,9 @@ li {
     padding: 10px;
 }
 
-/* Responsive layout (same sidebar position) */
 @media (max-width: 768px) {
     .navasid {
-        width: 80px; /* slightly narrower on small screens */
+        width: 80px; 
     }
 
     .nav {
@@ -185,7 +190,7 @@ li {
     }
 
     li {
-        margin-top: 3px;
+        margin-top: 3px;F
         font-size: 12px;
     }
 }

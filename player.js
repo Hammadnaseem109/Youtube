@@ -115,3 +115,35 @@
       remainvideos.appendChild(lvideo)
 
     });
+    const navbtn = document.getElementById("navbtn");
+const navasid = document.querySelector(".navasid");
+const navli = document.getElementsByClassName("navli");
+
+let row = true;
+let open = true
+
+navbtn.addEventListener("click", () => {
+    const screenWidth = window.innerWidth;
+
+
+
+
+        if (open) {
+            navasid.style.display = "flex";
+            console.log(open);
+            open = false
+
+
+        }
+        else {
+            navasid.style.display = "none";
+            console.log(open);
+            open = true
+
+        }
+
+    
+
+
+});
+
