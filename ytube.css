@@ -18,7 +18,7 @@ body {
     position: fixed;
     display: flex;
     align-items: center;
-    height: 70px;
+    height: 11%;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 
     width: 100vw;
@@ -30,8 +30,7 @@ body {
 
     display: flex;
     width: 100vw;
-    height: 60px;
-
+    height: 9%;
 }
 
 img {
@@ -65,6 +64,7 @@ img {
     align-items: center;
 
 }
+
 .inputsection input {
     border: none;
     outline: none;
@@ -129,17 +129,22 @@ img {
     background-color: white;
     z-index: 20000;
     position: fixed;
-    top: 0;
+    top: 11%;
     left: 0;
-    margin-top: 70px;
+
     height: 100vh;
-    width: 100px;
+    width: 10vh;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     transition: width 0.3s ease;
 }
-@media(max-width:560px){
-    .navasid{
+
+@media(max-width:700px) {
+    .navasid {
+            background-color: white;
+
+        
         display: none;
+        width: 25vw
     }
 
 }
@@ -148,7 +153,7 @@ img {
     display: flex;
     flex-direction: column;
     margin-top: 15px;
-    width: 100%;
+    width: 25vw;
 }
 
 
@@ -174,7 +179,10 @@ li {
 
 @media (max-width: 768px) {
     .navasid {
-        width: 80px; 
+            background-color: white;
+
+        width: 20vh;
+        
     }
 
     .nav {
@@ -190,17 +198,18 @@ li {
     }
 
     li {
-        margin-top: 3px;F
+        margin-top: 3px;
         font-size: 12px;
     }
 }
 
 .video-section {
-    padding: 20px;
     display: flex;
-    margin-top: 90px;
-    margin-left: 120px;
+    margin-top: 11vh;
+    margin-left: 10vw;
+
     width: 100%;
+    padding: 10px;
 }
 
 .video {
@@ -209,14 +218,7 @@ li {
     gap: 20px;
 }
 
-/* Mobile first */
-/* .video {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
-} */
 
-/* Tablets Portrait and up */
 @media (min-width: 600px) {
     .video {
         grid-template-columns: repeat(2, 1fr);

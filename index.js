@@ -112,12 +112,27 @@ songs.forEach((element, index) => {
 
 
 });
+let videosection=document.getElementById("video-section")
 const navbtn = document.getElementById("navbtn");
 const navasid = document.querySelector(".navasid");
 const navli = document.getElementsByClassName("navli");
 
 let row = true;
 let open = true
+const screenWidth1 = window.innerWidth;
+if (screenWidth1 <= 560) {
+    navasid.style.width = "0px";
+videosection.style.marginLeft = "0vw";
+
+
+}
+else {
+    navasid.style.width = "10vw";
+    videosection.style.marginLeft = "10vw";
+
+
+}
+
 
 navbtn.addEventListener("click", () => {
     const screenWidth = window.innerWidth;
@@ -130,8 +145,12 @@ navbtn.addEventListener("click", () => {
 
         if (open) {
             navasid.style.display = "flex";
+            navasid.style.width = "100px";
+
             console.log(open);
             open = false
+            navasid.style.width = "0vw";
+
 
 
         }
