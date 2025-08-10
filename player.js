@@ -97,7 +97,9 @@ function dislikedfn(){
   if(exist){
     likedvideo=likedvideo.filter(obj=>obj.url !==playingelements.url)
     alert("Removed From Liked Playlist")
-    localStorage.setItem(JSON.stringify(likedvideo))
+    console.log(likedvideo);
+    
+    localStorage.setItem("liked",JSON.stringify(likedvideo))
 
   }
   else{
