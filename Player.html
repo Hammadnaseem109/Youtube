@@ -10,11 +10,6 @@
 </head>
 
 <body>
-
-
-
-
-
 </body>
 
 <body>
@@ -65,6 +60,11 @@
         <img src="Images/user.png" alt="">
         <li>You</li>
       </div>
+       <div class="navli" id="likevideos" onclick="likedvideopage()">
+                <img src="Images/user.png" alt="">
+                <li>Like Videos</li>
+            </div>
+
 
     </ul>
 
@@ -72,15 +72,28 @@
   <!-- -----end of nav------- -->
   <div class="playervideo">
     <div class="playingvideo">
-      <video controls autoplay muted class="yvidoe">
-        <source src="Dumy-Vidio/dummy-Video.mp4" type="video/mp4">
 
-      </video>
-      <div class="yvdetail">
+      <div class="yvidoe">
+        <iframe src="https://www.dailymotion.com/video/x9laqf2" class="yvidoe" id="playingvideo"></iframe>
+
+
+      </div>
+
+
+      <div class="likesbtn" id="likebtn">
+        <button id="likebtn" class="likeshape" onclick="likedvideosfn()">
+          like
+        </button>
+        <button id="dislikebtn" class="likeshape" onclick="dislikedfn()">
+          dislikebtn
+        </button>
 
       </div>
 
     </div>
+
+
+
     <div class="remainvideos" id="remainvideos">
 
     </div>
@@ -89,7 +102,7 @@
   </div>
 
 
-  
+
   <script src="player.js"></script>
 </body>
 

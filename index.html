@@ -10,7 +10,7 @@
 
 <body>
     <!-- -----star of header----- -->
-    <header class="mainheader">
+    <header class="mainheader" id="mainheader">
         <div class="header">
             <div class="left-side">
                 <img src="Images/navbtn.png" alt="navbtn" id="navbtn">
@@ -42,7 +42,7 @@
     </header>
     <!-- -----end  of header--- -->
     <!-- -----start of Nav------ -->
-    <nav class="navasid" style="background-color: white;">
+    <nav class="navasid" id="navasid">
         <ul class="nav">
             <div class="navli" >
                 <img src="Images/home.png" alt="Home">
@@ -56,6 +56,10 @@
                 <img src="Images/user.png" alt="">
                 <li>You</li>
             </div>
+            <div class="navli" id="likevideos" onclick="likedvideopage()">
+                <img src="Images/user.png" alt="">
+                <li>Like Videos</li>
+            </div>
 
         </ul>
 
@@ -66,16 +70,8 @@
         </div>
 
     </div>
-
     </div>
-
-
     </div>
 <script src="index.js"></script>
 </body>
-
-
-
-
-
 </html>

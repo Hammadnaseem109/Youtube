@@ -1,121 +1,110 @@
- const songs = [
-      {
-        title: "Ed Sheeran – Shape of You",
-        url: "https://www.youtube.com/watch?v=JGwWNGJdvx8",
-        thumbnail: "https://img.youtube.com/vi/JGwWNGJdvx8/hqdefault.jpg"
-      },
-      {
-        title: "Luis Fonsi – Despacito ft. Daddy Yankee",
-        url: "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
-        thumbnail: "https://img.youtube.com/vi/kJQP7kiw5Fk/hqdefault.jpg"
-      },
+let songs = [];
+let firstTime = localStorage.getItem("firstTime") || null;
+var likedvideo;
+if (firstTime !== null) {
+  console.log("not first firstTime");
+   likedvideo = JSON.parse(localStorage.getItem("liked"))
+} else {
+  likedvideo=[]
+  localStorage.setItem("liked", JSON.stringify(likedvideo));
+  localStorage.setItem("firstTime", "1");
+  console.log("firstTime");
+}
 
-      {
-        title: "Ali Sethi – Pasoori",
-        url: "https://www.youtube.com/watch?v=5Eqb_-j3FDA",
-        thumbnail: "https://img.youtube.com/vi/5Eqb_-j3FDA/hqdefault.jpg"
-      },
-      {
-        title: "Becky G – Shower",
-        url: "https://www.youtube.com/watch?v=50-_oTkmF5I",
-        thumbnail: "https://img.youtube.com/vi/50-_oTkmF5I/hqdefault.jpg"
-      },
-      {
-        title: "Maroon 5 – Sugar",
-        url: "https://www.youtube.com/watch?v=09R8_2nJtjg",
-        thumbnail: "https://img.youtube.com/vi/09R8_2nJtjg/hqdefault.jpg"
-      },
-      {
-        title: "The Weeknd – Blinding Lights",
-        url: "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
-        thumbnail: "https://img.youtube.com/vi/4NRXx6U8ABQ/hqdefault.jpg"
-      },
-      {
-        title: "Dua Lipa – Levitating",
-        url: "https://www.youtube.com/watch?v=TUVcZfQe-Kw",
-        thumbnail: "https://img.youtube.com/vi/TUVcZfQe-Kw/hqdefault.jpg"
-      },
-      {
-        title: "Taylor Swift – Shake It Off",
-        url: "https://www.youtube.com/watch?v=nfWlot6h_JM",
-        thumbnail: "https://img.youtube.com/vi/nfWlot6h_JM/hqdefault.jpg"
-      },
-      {
-        title: "Adele – Hello",
-        url: "https://www.youtube.com/watch?v=YQHsXMglC9A",
-        thumbnail: "https://img.youtube.com/vi/YQHsXMglC9A/hqdefault.jpg"
-      },
-      {
-        title: "Charlie Puth – Attention",
-        url: "https://www.youtube.com/watch?v=nfs8NYg7yQM",
-        thumbnail: "https://img.youtube.com/vi/nfs8NYg7yQM/hqdefault.jpg"
-      },
-      {
-        title: "Billie Eilish – bad guy",
-        url: "https://www.youtube.com/watch?v=DyDfgMOUjCI",
-        thumbnail: "https://img.youtube.com/vi/DyDfgMOUjCI/hqdefault.jpg"
-      },
-      {
-        title: "Imagine Dragons – Believer",
-        url: "https://www.youtube.com/watch?v=7wtfhZwyrcc",
-        thumbnail: "https://img.youtube.com/vi/7wtfhZwyrcc/hqdefault.jpg"
-      },
-      {
-        title: "Selena Gomez – Wolves",
-        url: "https://www.youtube.com/watch?v=cH4E_t3m3xM",
-        thumbnail: "https://img.youtube.com/vi/cH4E_t3m3xM/hqdefault.jpg"
-      },
-      {
-        title: "Zayn – Dusk Till Dawn ft. Sia",
-        url: "https://www.youtube.com/watch?v=tt2k8PGm-TI",
-        thumbnail: "https://img.youtube.com/vi/tt2k8PGm-TI/hqdefault.jpg"
-      },
-      {
-        title: "Shawn Mendes – Treat You Better",
-        url: "https://www.youtube.com/watch?v=lY2yjAdbvdQ",
-        thumbnail: "https://img.youtube.com/vi/lY2yjAdbvdQ/hqdefault.jpg"
-      },
-      {
-        title: "Coldplay – Hymn For The Weekend",
-        url: "https://www.youtube.com/watch?v=YykjpeuMNEk",
-        thumbnail: "https://img.youtube.com/vi/YykjpeuMNEk/hqdefault.jpg"
-      },
-      {
-        title: "Major Lazer & DJ Snake – Lean On",
-        url: "https://www.youtube.com/watch?v=YqeW9_5kURI",
-        thumbnail: "https://img.youtube.com/vi/YqeW9_5kURI/hqdefault.jpg"
-      }
-    ];
 
-    const remainvideos = document.getElementById("remainvideos")
+
+var playingvideo = document.getElementById("playingvideo")
+const current = JSON.parse(localStorage.getItem("playingsong"));
+playingvideo.src = current.url
+var playingelements=current
+const likebtn = document.getElementById("likebtn")
+const dislikebtn = document.getElementById("dislikebtn")
+
+
+fetch("songs.json")
+  .then(response => response.json())
+  .then(data => {
+    songs = data;
+
+    const remainvideos = document.getElementById("remainvideos");
+
     songs.forEach(element => {
-      const lvideo = document.createElement("div")
-      lvideo.className = "lvideo"
-      const ltvideo = document.createElement("img")
-      ltvideo.className = "lvthumnail"
-      ltvideo.src = element.thumbnail
-      const nat = document.createElement("div")
-      nat.className = "nat"
-      const songsname = document.createElement("p")
-      songsname.className = "songname"
-      songsname.textContent = element.title
-      const br = document.createElement("br");
+      const lvideo = document.createElement("div");
+      lvideo.className = "lvideo";
 
-      const songstitle = document.createElement("p")
-      songstitle.className = "songname"
-      songstitle.textContent = "T-Series"
+      const ltvideo = document.createElement("img");
+      ltvideo.className = "lvthumnail";
+      ltvideo.src = element.thumbnail;
 
-      lvideo.appendChild(ltvideo)
+      const nat = document.createElement("div");
+      nat.className = "nat";
 
-      lvideo.appendChild(nat)
-      nat.appendChild(songsname)
-      // nat.appendChild(br);
+      const songsname = document.createElement("p");
+      songsname.className = "songname";
+      songsname.textContent = element.title;
 
-      nat.appendChild(songstitle)
-      remainvideos.appendChild(lvideo)
+      const songstitle = document.createElement("p");
+      songstitle.className = "songname";
+      songstitle.textContent = "T-Series";
 
+      lvideo.appendChild(ltvideo);
+      lvideo.appendChild(nat);
+      nat.appendChild(songsname);
+      nat.appendChild(songstitle);
+
+      remainvideos.appendChild(lvideo);
+      lvideo.addEventListener('click', () => {
+        playingvideo.src = element.url
+        console.log(element.url);
+        playingelements=element
+
+
+
+      })
     });
-    const navbtn = document.getElementById("navbtn");
+  })
+  .catch(error => {
+    alert("Please check the Internet connection or file path");
+    console.error(error);
+  });
+function likedvideosfn(){
+  
+  const exist=likedvideo.some(video=>video.url===playingelements.url)
+  
+  
+  console.log(exist);
+  
+  if(exist){
+      console.log("yes exist");
+      console.log("this array of like video" +likedvideo);
+      
+
+    alert("this Video already add in Liked Videos")
+  }
+  else{
+          console.log("not exist");
+
+    likedvideo.push(playingelements)
+    console.log(likedvideo);
+    
+        alert("this Video added in Liked Videos")
+        localStorage.setItem("liked",JSON.stringify(likedvideo))
+
+  }
+}
+function dislikedfn(){
+  const exist=likedvideo.some(video=>video.url===playingelements.url)
+  if(exist){
+    likedvideo=likedvideo.filter(obj=>obj.url !==playingelements.url)
+    alert("Removed From Liked Playlist")
+    localStorage.setItem(JSON.stringify(likedvideo))
+
+  }
+  else{
+    alert("This Video is not Added In Your Liked Playlist")
+  }
+}
+  const navbtn = document.getElementById("navbtn");
 const navasid = document.querySelector(".navasid");
 const navli = document.getElementsByClassName("navli");
 
@@ -146,4 +135,6 @@ navbtn.addEventListener("click", () => {
 
 
 });
-
+function likedvideopage(){
+    window.location.href="like.html"
+}
