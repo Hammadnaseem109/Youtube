@@ -225,14 +225,12 @@ li {
     }
 }
 
-/* Tablets Landscape and small desktop */
 @media (min-width: 768px) {
     .video {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Desktop and large screens */
 @media (min-width: 1024px) {
     .video {
         grid-template-columns: repeat(4, 1fr);
@@ -291,6 +289,9 @@ a {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+}
+.navli:hover{
+    cursor: pointer;
 }
 
 /* .rownavli {

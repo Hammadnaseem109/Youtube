@@ -24,7 +24,7 @@ fetch('songs.json')
             propervideo.appendChild(Channelname)
             propervideo.addEventListener("click", () => {
                 const current = element
-                localStorage.setItem("playingsong",JSON.stringify(element));
+                localStorage.setItem("playingsong", JSON.stringify(element));
                 window.location.href = "Player.html";
 
 
@@ -43,10 +43,10 @@ const navasid = document.querySelector(".navasid");
 const navasidi = document.getElementById("navasid")
 const navli = document.getElementsByClassName("navli");
 
-
+const navlitext = document.getElementsByClassName("navlitext")
 
 let open = false
-let colum = false
+let colum = true
 navbtn.addEventListener("click", () => {
 
     const screenWidth = window.innerWidth;
@@ -57,13 +57,33 @@ navbtn.addEventListener("click", () => {
         open = !open;
     } else {
         Array.from(navli).forEach(el => {
+
             el.style.flexDirection = colum ? "row" : "column";
+            console.log(colum + "1");
+
         });
+        if (!colum) {
+
+        }
+        else {
+            Array.from(navli).forEach(ele => {
+                ele.style.alignItems = "center";
+                ele.style.justifyContent = "start";
+                Array.from(navlitext).forEach(t => {
+                    t.style.margin = "0";
+
+                    t.style.display = "flex";
+                    t.style.alignItems = "center";
+                    t.style.marginLeft = "4px";
+                });
+            });
+        }
+
         colum = !colum;
     }
 
 
 });
-function likedvideopage(){
-    window.location.href="like.html"
+function likedvideopage() {
+    window.location.href = "like.html"
 }
