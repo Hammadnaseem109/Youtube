@@ -1,4 +1,22 @@
-let songs = []
+let songs = [];
+var likedvideo =[];
+
+const firstTime = localStorage.getItem("firstTime") || null;
+console.log(firstTime);
+
+
+if (firstTime !== null) {
+    console.log("Not First Time", firstTime);
+    likedvideo = JSON.parse(localStorage.getItem("liked"));
+    
+} else {
+    localStorage.setItem("liked", JSON.stringify(likedvideo));
+    localStorage.setItem("firstTime", "1");
+
+    console.log("First Time", likedvideo);
+}
+
+
 fetch('songs.json')
     .then(res => res.json())
     .then(data => {
@@ -17,18 +35,64 @@ fetch('songs.json')
             const Channelname = document.createElement("p")
             Channelname.className = "songname"
             Channelname.textContent = "T-Series"
+            const btndiv=document.createElement("div")
+            btndiv.className="btndiv"
+            const likebtn=document.createElement("button")
+            likebtn.id="likebtn"
+            likebtn.className="btns"
+            likebtn.textContent="Liked"
+            const dlikebtn=document.createElement("button")
+            dlikebtn.id="dlikebtn"
+            dlikebtn.className="btns"
+            dlikebtn.textContent="Disliked"
+            
             video.appendChild(propervideo)
 
             propervideo.append(mainimgd)
+
             propervideo.appendChild(videoname)
             propervideo.appendChild(Channelname)
-            propervideo.addEventListener("click", () => {
+            btndiv.appendChild(likebtn)
+            btndiv.appendChild(dlikebtn)
+            propervideo.appendChild(btndiv)
+            mainimgd.addEventListener("click", () => {
                 const current = element
                 localStorage.setItem("playingsong", JSON.stringify(element));
                 window.location.href = "Player.html";
 
 
             })
+
+likebtn.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+
+    const exist = likedvideo.some(video => video.url === element.url);
+
+    if (exist) {
+        alert("This Video is already added in Liked Videos");
+    } else {
+        likedvideo.push(element);   
+        localStorage.setItem("liked", JSON.stringify(likedvideo));
+        alert("This Video has been added to Liked Videos");
+        console.log(likedvideo);
+    }
+});
+
+dlikebtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    const exist = likedvideo.some(video => video.url === element.url);
+
+    if (exist) {
+        likedvideo = likedvideo.filter(obj => obj.url !== element.url);
+        localStorage.setItem("liked", JSON.stringify(likedvideo));
+        alert("Removed From Liked Playlist");
+        console.log(likedvideo);
+    } else {
+        alert("This Video is not in your Liked Playlist");
+    }
+});
+
 
         });
 

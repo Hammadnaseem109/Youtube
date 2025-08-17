@@ -324,3 +324,18 @@ a {
     border-radius: 0%;
 
 }
+.btndiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 20%;
+    justify-content: space-around;
+
+}
+.btns{
+    background-color: bisque;
+    border-radius: 10%;
+    width: 20%;
+    height: 100%;
+
+}
